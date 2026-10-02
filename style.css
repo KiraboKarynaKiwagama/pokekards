@@ -1,0 +1,152 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: sans-serif;
+    background-color: #e6cf75;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+
+}
+
+.site-header {
+    width: 100%;
+    background-color: #2a75bb;
+    color: #ffffff;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.site-header h1{
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+#pokemon-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 16px;
+
+}
+
+.card {
+    background:white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align:center;
+    text-transform: capitalize;
+    transition: transform 0.2s ease;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(29, 18, 239, 0.68);
+
+}
+
+.pokemon-img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+
+}
+
+.card h2 {
+    font-size: 1.2em;
+    margin: 10px 0 8px;
+    color: #333;
+}
+
+.shiny-btn {
+  background-color: #ffcb05;
+  color: #2a75bb;
+  border: 2px solid #2a75bb;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: auto; /* Keeps button aligned near the bottom */
+}
+
+.shiny-btn:hover {
+  background-color: #f5b700;
+}
+
+.shiny-btn:active {
+  transform: scale(1.15);
+}
+
+.ability-text {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 24px auto;
+    max-width: 400px;
+    padding: 0 16px;
+}
+
+#search-input {
+    flex: 1;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 25px;
+    border: 2px solid #2a75bb;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search-input:focus {
+  border-color: #ffcb05;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#search-button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #4291da;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#search-button:hover {
+    background-color: #1e4f8b;
+}
+
+#search-btn:active {
+  transform: scale(0.96);
+}
