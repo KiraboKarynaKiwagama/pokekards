@@ -108,13 +108,13 @@ body {
 }
 
 .intro-card {
-    width: 1200px;
-    margin: 20px 0 20px 24px;
+    width: 100%;
+    margin: 20px auto;
     padding: 18px 22px;
     background: linear-gradient(135deg, #fffaf0 0%, #ffe27a 100%);
     border: 3px solid #2a75bb;
     border-radius: 18px;
-    box-shadow: 0 6px 14px rgba(42, 117, 187, 0.18);
+    box-shadow: 0 4px 0cap rgba(42, 117, 187, 0.18);
     text-align: left;
 }
 
@@ -250,6 +250,16 @@ body {
 @media (max-width: 600px) {
     body {
         padding: 12px;
+    }
+
+    .intro-card {
+    padding: 14px 16px;
+    margin: 12px 0;
+    }
+    
+    .intro-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     #pokemon-container {
