@@ -14,24 +14,49 @@ body {
 
 }
 
+.site-header h1::before {
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-right: 12px;
+    vertical-align: left;
+    border-radius: 50%;
+    border: 3px solid #222;
+    background: linear-gradient(to bottom, #e53935 0 45%, #222 45% 55%, #fff 55% 100%);
+}
+
+
 .site-header {
     width: 100%;
     background-color: #2a75bb;
-    color: #ffffff;
+    color: #000000;
     padding: 12px 24px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 6px solid #ffcb05;
 }
 
 .site-header h1{
+    text-shadow: 3px 3px 0 #ffcb05;
     font-size: 1.4rem;
+    font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 1px;
-}
+} 
 
+.site-footer {
+    font-size: 0.75rem;
+    width: 100%;
+    background-color: #2a75bb;
+    color: #ffffff;
+    padding: 12px 12px;
+    margin-top: 20px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
 
 #pokemon-container {
     display: grid;
@@ -47,6 +72,7 @@ body {
 .card {
     background:white;
     border-radius: 12px;
+    border: 3px solid #2a75bb;
     padding: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -59,15 +85,18 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(29, 18, 239, 0.68);
-
+    transform: translateY(-5px) rotate(-1.5deg) scale(1.05);
+    box-shadow: 0 8px 16px rgba(14, 11, 68, 0.858);
 }
 
 .pokemon-img{
     width: 100px;
     height: 100px;
     object-fit: contain;
+    padding: 6px;
+    border-radius: 50%;
+    border: 2px solid #2a75bb;
+    background: radial-gradient(circle, #fff7c2 0%, #ffe27a 100%);
 
 }
 
@@ -77,16 +106,73 @@ body {
     color: #333;
 }
 
+.intro-card {
+    width: 1200px;
+    margin: 20px 0 20px 24px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #fffaf0 0%, #ffe27a 100%);
+    border: 3px solid #2a75bb;
+    border-radius: 18px;
+    box-shadow: 0 6px 14px rgba(42, 117, 187, 0.18);
+    text-align: left;
+}
+
+.intro-card p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #2b2b2b;
+    background: transparent;
+    border: none;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+.card:hover .pokemon-img {
+  animation: wiggle 0.4s ease;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 2px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: white;
+  background: #888;
+}
+.type-badge.grass { background: #5fbd58; }
+.type-badge.fire { background: #ff9d55; }
+.type-badge.water { background: #5090d6; }
+.type-badge.electric { background: #f4d23c; color: #333; }
+.type-badge.poison { background: #b567ce; }
+.type-badge.flying { background: #8fa8dd; }
+.type-badge.bug { background: #91c12f; }
+.type-badge.normal { background: #9099a1; }
+
+.button-row {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
 .shiny-btn {
   background-color: #ffcb05;
   color: #2a75bb;
   border: 2px solid #2a75bb;
   font-weight: bold;
-  padding: 8px 14px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: auto; /* Keeps button aligned near the bottom */
+  margin-top: auto; 
 }
 
 .shiny-btn:hover {
@@ -99,9 +185,9 @@ body {
 
 .ability-text {
   margin-top: 10px;
-  font-size: 0.85rem;
-  color: #555;
-  font-style: italic;
+  font-size: 0.95rem;
+  color: #2a75bb;
+  font-style: sans-serif;
 }
 
 .search-container {
@@ -109,7 +195,7 @@ body {
     align-items: center;
     gap: 8px;
     margin: 24px auto;
-    max-width: 400px;
+    max-width: 1000px;
     padding: 0 16px;
 }
 
@@ -127,13 +213,14 @@ body {
 
 #search-input:focus {
   border-color: #ffcb05;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(16, 21, 4, 0.696);
 }
 
 #search-button {
     padding: 10px 20px;
     border-radius: 25px;
     background-color: #4291da;
+    box-shadow: 0 2px 4px rgba(16, 21, 4, 0.696);
     color: white;
     border: none;
     font-size: 1rem;

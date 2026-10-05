@@ -4,9 +4,10 @@ const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('input', (e) => {
   const searchTerm = e.target.value.toLowerCase().trim();
   const cards = document.querySelectorAll('.card');
+  
 
   cards.forEach((card) => {
-    const name = card.querySelector('h2').textContent.toLowerCase();
+    const name = card.textContent.toLowerCase();
 
     if (name.includes(searchTerm)) {
       card.style.display = 'flex';
@@ -41,26 +42,46 @@ function createPokemonCard(pokemon) {
 
   
   const name = pokemon.name;
-  const defaultImage = pokemon.sprites.front_default;
-  const shinyImage = pokemon.sprites.front_shiny;
+  const defaultImage = pokemon.sprites.other["official-artwork"].front_default;
+  const shinyImage = pokemon.sprites.other["official-artwork"].front_shiny;
   const ability = pokemon.abilities[0].ability.name;
+  const types = pokemon.types.map(t => t.type.name);
+  const typeBadges = types.map(t => `<span class="type-badge ${t}">${t}</span>`).join('');
+  
+
 
   // Fill the card with content using template literals
   card.innerHTML = `
     <img src="${defaultImage}" class="pokemon-img" alt="${name}">
-    <h2>${name}</h2>
-    <button class="shiny-btn"> Click me! </button>
-    <p class="ability-text" style="display: none;">Ability: ${ability} </p>
-  `;
+  <h2>${name}</h2>
+
+    <div class="type-badges">${typeBadges}</div>
+  <div class="button-row">
+    <button class="shiny-btn cry-btn"> My cry</button>
+    <button class="shiny-btn ability-btn"> My ability</button>
+  </div>
+  <p class="ability-text" style="display: none;"> My ability is "${ability}" </p>
+`;
 
     const imgElement = card.querySelector('.pokemon-img');
-    const btnElement = card.querySelector('.shiny-btn');
+    const cryBtn = card.querySelector('.cry-btn');
     const abilityElement = card.querySelector('.ability-text');
+    const abilityBtn = card.querySelector('.ability-btn');
+    
 
-    btnElement.addEventListener('click', () => {
-        imgElement.src = shinyImage || defaultImage;
-        abilityElement.style.display = 'block';
-    });
+    cryBtn.addEventListener('click', () => {
+    if (pokemon.cries && pokemon.cries.latest) {
+        const cry = new Audio(pokemon.cries.latest);
+        cry.volume = 0.3;
+        cry.play();
+    }
+});
+
+abilityBtn.addEventListener('click', () => {
+    imgElement.src = shinyImage || defaultImage;
+    abilityElement.style.display = 'block';
+    abilityBtn.style.display = 'none';
+});
 
   container.appendChild(card);
 }
