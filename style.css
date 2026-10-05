@@ -11,6 +11,7 @@ body {
     text-align: center;
     padding: 20px;
     margin: 0;
+    overflow-x: hidden;
 
 }
 
@@ -270,7 +271,7 @@ body {
         height: 90px;
     }
 
-    /* Stack the two buttons so the text fits */
+   
     .button-row {
         flex-direction: column;
     }
